@@ -85,7 +85,7 @@ class String
   #   '　'.blank?               # => true
   #   ' something here '.blank? # => false
   def blank?
-    self !~ /[^\s]/
+    self !~ /[^\s　]/
   end
 end
 
