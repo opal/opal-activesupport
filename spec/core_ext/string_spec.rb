@@ -1,8 +1,8 @@
 require 'spec_helper'
 require 'active_support/core_ext/string'
+require 'inflector_test_cases'
 
 describe 'String' do
-
   describe "#demodulize" do
     it "removes any preceding module name from the string" do
       "Foo::Bar".demodulize.should == "Bar"
@@ -15,6 +15,15 @@ describe 'String' do
   end
 
   describe '#underscore' do
+    it "camel to underscore" do
+      CamelToUnderscore.each do |camel, underscore|
+        camel.underscore.should eq(underscore)
+      end
+
+      "HTMLTidy".underscore.should eq("html_tidy")
+      "HTMLTidyGenerator".underscore.should eq("html_tidy_generator")
+    end
+
     it "replaces '-' in dasherized strings with underscores" do
       "well-hello-there".underscore.should == "well_hello_there"
     end
