@@ -11,6 +11,9 @@ Gem::Specification.new do |gem|
   gem.description   = %q{The port of the glorious ActiveSupport for Opal}
   gem.summary       = %q{The port of the glorious ActiveSupport for Opal}
   gem.homepage      = 'http://opalrb.org'
+  gem.rdoc_options << '--main' << 'README' <<
+                      '--line-numbers' <<
+                      '--include' << 'opal'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
