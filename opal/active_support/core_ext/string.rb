@@ -1,4 +1,8 @@
 class String
+  def parameterize
+    self.downcase.strip.gsub(/\W+/, '-')
+  end
+
   def dasherize
     `#{self}.replace(/[-_\\s]+/g, '-')
             .replace(/([A-Z\\d]+)([A-Z][a-z])/g, '$1-$2')
