@@ -29,7 +29,12 @@ class String
     .toLowerCase()`
   end
 
-  def camelize
-    strip.gsub(/\W+(\w)/) { $1.upcase }.gsub(/^(\w)/) { $1.upcase }
+  def camelize(first_letter = :upper)
+    `#{underscore}.replace(/(^|_)([^_]+)/g, function(match, pre, word, index) {
+      var capitalize = #{first_letter} === #{:upper} || index > 0;
+      return capitalize ? word.substr(0,1).toUpperCase()+word.substr(1) : word;
+    })`
   end
+  alias_method :camelcase, :camelize
+
 end

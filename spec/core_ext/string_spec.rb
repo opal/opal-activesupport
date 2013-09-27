@@ -2,7 +2,10 @@ require 'spec_helper'
 require 'active_support/core_ext/string'
 require 'inflector_test_cases'
 
+module InflectorTestCases
 describe 'String' do
+  # include InflectorTestCases
+
   describe "#demodulize" do
     it "removes any preceding module name from the string" do
       "Foo::Bar".demodulize.should == "Bar"
@@ -52,4 +55,18 @@ describe 'String' do
       end
     end
   end
+
+  describe '#camelize' do
+    it 'camelizes' do
+      CamelToUnderscore.each do |camel, underscore|
+        puts [underscore, camel, underscore.camelize].inspect
+        underscore.camelize.should == camel
+      end
+    end
+
+    it 'accepts :lower to keep the first letter lowercase' do
+      'Capital'.camelize(:lower).should == 'capital'
+    end
+  end
+end
 end
