@@ -59,7 +59,6 @@ describe 'String' do
   describe '#camelize' do
     it 'camelizes' do
       CamelToUnderscore.each do |camel, underscore|
-        puts [underscore, camel, underscore.camelize].inspect
         underscore.camelize.should == camel
       end
     end
