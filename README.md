@@ -1,6 +1,7 @@
-# Opal::Activesupport
+# Opal: ActiveSupport
 
-TODO: Write a gem description
+> @AstonJ But it's vanilla Ruby. It's not like you have ActiveSupport available, which somewhat defeats it for me.
+— @dhh, https://twitter.com/dhh/status/260783823254601728
 
 ## Installation
 
@@ -16,9 +17,17 @@ Or install it yourself as:
 
     $ gem install opal-activesupport
 
+
 ## Usage
 
-TODO: Write usage instructions here
+Inside your `application.js.rb`:
+
+```ruby
+require 'active_support'                 # to require the whole active support lib
+require 'active_support/core_ext'        # require only the corelib extensions
+require 'active_support/core_ext/string' # require only the corelib extensions
+```
+
 
 ## Contributing
 
