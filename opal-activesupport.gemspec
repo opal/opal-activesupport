@@ -20,7 +20,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
 
-  gem.add_dependency 'opal', '~> 0.4.2'
+  gem.add_dependency 'opal'
   gem.add_development_dependency 'rake'
-  gem.add_development_dependency 'opal-spec', '~> 0.2.17'
+  gem.add_development_dependency 'opal-rspec'
 end

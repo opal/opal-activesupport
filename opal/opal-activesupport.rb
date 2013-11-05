@@ -1,1 +1,1 @@
-require 'opal/activesupport'
+require 'active_support'
