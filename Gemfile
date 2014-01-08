@@ -2,4 +2,5 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'opal', '~> 0.5.0'
+gem 'opal',       :github => 'opal/opal'
+gem 'opal-rspec', '0.3.0.beta2'

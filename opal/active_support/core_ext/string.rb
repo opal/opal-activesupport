@@ -4,9 +4,9 @@ class String
   end
 
   def dasherize
-    `#{self}.replace(/[-_\\s]+/g, '-')
-            .replace(/([A-Z\\d]+)([A-Z][a-z])/g, '$1-$2')
-            .replace(/([a-z\\d])([A-Z])/g, '$1-$2')
+    `#{self}.replace(/[-_\s]+/g, '-')
+            .replace(/([A-Z\d]+)([A-Z][a-z])/g, '$1-$2')
+            .replace(/([a-z\d])([A-Z])/g, '$1-$2')
             .toLowerCase()`
   end
 
@@ -23,9 +23,9 @@ class String
   end
 
   def underscore
-    `#{self}.replace(/[-\\s]+/g, '_')
-    .replace(/([A-Z\\d]+)([A-Z][a-z])/g, '$1_$2')
-    .replace(/([a-z\\d])([A-Z])/g, '$1_$2')
+    `#{self}.replace(/[-\s]+/g, '_')
+    .replace(/([A-Z\d]+)([A-Z][a-z])/g, '$1_$2')
+    .replace(/([a-z\d])([A-Z])/g, '$1_$2')
     .replace(/-/g, '_')
     .toLowerCase()`
   end
@@ -37,5 +37,4 @@ class String
     })`
   end
   alias_method :camelcase, :camelize
-
 end
