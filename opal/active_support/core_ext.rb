@@ -1,2 +1,5 @@
-require 'active_support/core_ext/string'
+require 'active_support/core_ext/enumerable'
+require 'active_support/core_ext/integer'
+require 'active_support/core_ext/numeric'
 require 'active_support/core_ext/object'
+require 'active_support/core_ext/string'
