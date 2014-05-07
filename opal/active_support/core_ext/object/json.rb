@@ -29,3 +29,9 @@ class String
     self
   end
 end
+
+class Array
+  def as_json(options = nil) #:nodoc:
+    map { |v| options ? v.as_json(options.dup) : v.as_json }
+  end
+end
