@@ -12,7 +12,7 @@ module TestUnitHelpers
   end
 
   def assert_equal actual, expected
-    actual.should == expected
+    expect(expected).to eq(actual)
   end
 
   def assert_raise error, &block
