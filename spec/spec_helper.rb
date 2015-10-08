@@ -7,8 +7,16 @@ module TestUnitHelpers
     expect(actual).to be_truthy
   end
 
+  def assert_nil actual
+    expect(actual).to be_nil
+  end
+
   def assert_equal actual, expected
     actual.should == expected
+  end
+
+  def assert_raise error, &block
+    expect(&block).to raise_error(error)
   end
 end
 
