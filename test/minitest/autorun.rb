@@ -26,5 +26,4 @@ def Minitest.run args = []
   # `window.OPAL_TEST_EXIT_STATUS = #{reporter.passed?}`
 end
 
-
 at_exit { exit Minitest.run }

@@ -31,4 +31,16 @@ require 'empty_bool'
 require 'active_support'
 
 class ActiveSupport::TestCase < Minitest::Test
+  def self.test name, &block
+    define_method "test_#{name.gsub(/[\W-]+/, '_')}", &block
+  end
+
+  def assert_raise error, &block
+    block.call
+    assert false, "Expected to see #{error.inspect}, but no exception was raised"
+  rescue error
+    # noop
+  rescue => actual_error
+    assert false, "Expected to see #{error.inspect}, but got #{actual_error.inspect}"
+  end
 end
