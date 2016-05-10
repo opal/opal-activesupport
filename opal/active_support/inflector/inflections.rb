@@ -54,19 +54,17 @@ module ActiveSupport
     def apply_inflections(word, rules)
       result = word.to_s
 
-      if inflections.uncountables.include?(result.downcase)
-        result
-      else
+      unless inflections.uncountables.include?(result.downcase)
         rules.each do |rule, replacement|
-          changed = result.sub(rule, replacement)
-          unless changed == result
-            result = changed
+          if result =~ rule
+            result = result.sub(rule, replacement)
             break
           end
         end
-
         result
       end
+      
+      result
     end
 
     class Inflections
