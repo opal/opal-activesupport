@@ -1,4 +1,4 @@
 sh make/build
-# git remote add origin https://github.com/balmoral/opal-activesupport.git
-# git push -u origin master
+git remote add origin https://github.com/balmoral/opal-activesupport.git
+git push -u origin master
 git push
