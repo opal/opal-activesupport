@@ -1,0 +1,3 @@
+sh make/commit
+gem build opal-activesupport.gemspec
+# gem install opal-activesupport-0.3.0.gem

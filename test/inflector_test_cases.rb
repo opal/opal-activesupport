@@ -107,6 +107,8 @@ module InflectorTestCases
 
     "cow"         => "kine",
     "database"    => "databases",
+    
+    "words"       => "words", # no change if plural already  
 
     # regression tests against improper inflection regexes
     "|ice"        => "|ices",
