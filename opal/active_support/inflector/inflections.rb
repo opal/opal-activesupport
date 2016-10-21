@@ -4,7 +4,7 @@ module ActiveSupport
   module Inflector
     extend self
 
-    def inflections
+    def inflections(lang = :en)
       if block_given?
         yield Inflections.instance
       else
