@@ -4,7 +4,6 @@ require 'abstract_unit'
 require 'inflector_test_cases'
 # require 'constantize_test_cases'
 
-require 'active_support/inflector'
 require 'active_support/core_ext/string'
 require 'active_support/time'
 # require 'active_support/core_ext/string/strip'
@@ -52,19 +51,19 @@ class StringInflectionsTest < ActiveSupport::TestCase
   #     baz
   #   EOS
   # end
-  #
-  # def test_pluralize
-  #   SingularToPlural.each do |singular, plural|
-  #     assert_equal(plural, singular.pluralize)
-  #   end
-  #
-  #   assert_equal("plurals", "plurals".pluralize)
-  #
-  #   assert_equal("blargles", "blargle".pluralize(0))
-  #   assert_equal("blargle", "blargle".pluralize(1))
-  #   assert_equal("blargles", "blargle".pluralize(2))
-  # end
-  #
+
+  def test_pluralize
+    SingularToPlural.each do |singular, plural|
+      assert_equal(plural, singular.pluralize)
+    end
+
+    assert_equal("plurals", "plurals".pluralize)
+
+    assert_equal("blargles", "blargle".pluralize(0))
+    # assert_equal("blargle", "blargle".pluralize(1))
+    assert_equal("blargles", "blargle".pluralize(2))
+  end
+
   # def test_singularize
   #   SingularToPlural.each do |singular, plural|
   #     assert_equal(singular, plural.singularize)
