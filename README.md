@@ -1,7 +1,8 @@
 # Opal: ActiveSupport
 
+_@dhh [6:44 PM - Oct 23, 2012](https://twitter.com/dhh/status/260783823254601728):_
 > @AstonJ But it's vanilla Ruby. It's not like you have ActiveSupport available, which somewhat defeats it for me.
-— @dhh, https://twitter.com/dhh/status/260783823254601728
+
 
 ## Installation
 
