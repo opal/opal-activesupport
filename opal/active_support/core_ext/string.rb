@@ -33,7 +33,7 @@ class String
   end
 
   def camelize(first_letter = :upper)
-    `#{underscore}.replace(/(^|_)([^_]+)/g, function(match, pre, word, index) {
+    `return #{underscore}.replace(/(^|_)([^_]+)/g, function(match, pre, word, index) {
       var capitalize = #{first_letter} === #{:upper} || index > 0;
       return capitalize ? word.substr(0,1).toUpperCase()+word.substr(1) : word;
     })`
