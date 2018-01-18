@@ -25,7 +25,7 @@ class String
   end
 
   def underscore
-    `#{self}.replace(/[-\s]+/g, '_')
+    `return #{self}.replace(/[-\s]+/g, '_')
     .replace(/([A-Z\d]+)([A-Z][a-z])/g, '$1_$2')
     .replace(/([a-z\d])([A-Z])/g, '$1_$2')
     .replace(/-/g, '_')
