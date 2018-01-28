@@ -172,7 +172,7 @@ module InflectorTestCases
     "!@#Leading bad characters"           => "leading-bad-characters",
     "Squeeze   separators"                => "squeeze-separators",
     "Test with + sign"                    => "test-with-sign",
-    "Test with malformed utf8 \251"       => "test-with-malformed-utf8"
+    # "Test with malformed utf8 \251"       => "test-with-malformed-utf8"
   }
 
   StringToParameterizeWithNoSeparator = {
@@ -183,7 +183,7 @@ module InflectorTestCases
     "!@#Leading bad characters"           => "leadingbadcharacters",
     "Squeeze   separators"                => "squeezeseparators",
     "Test with + sign"                    => "testwithsign",
-    "Test with malformed utf8 \251"       => "testwithmalformedutf8"
+    # "Test with malformed utf8 \251"       => "testwithmalformedutf8"
   }
 
   StringToParameterizeWithUnderscore = {
@@ -195,13 +195,13 @@ module InflectorTestCases
     "!@#Leading bad characters"           => "leading_bad_characters",
     "Squeeze   separators"                => "squeeze_separators",
     "Test with + sign"                    => "test_with_sign",
-    "Test with malformed utf8 \251"       => "test_with_malformed_utf8"
+    # "Test with malformed utf8 \251"       => "test_with_malformed_utf8"
   }
 
   StringToParameterizedAndNormalized = {
     "Malmö"                               => "malmo",
     "Garçons"                             => "garcons",
-    "Ops\331"                             => "opsu",
+    # "Ops\331"                             => "opsu",
     "Ærøskøbing"                          => "aeroskobing",
     "Aßlar"                               => "asslar",
     "Japanese: 日本語"                    => "japanese"

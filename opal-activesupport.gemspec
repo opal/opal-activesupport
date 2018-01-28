@@ -22,5 +22,6 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'opal', ['>= 0.5.0', '< 1.0.0']
   gem.add_development_dependency 'opal-minitest'
+  gem.add_development_dependency 'opal-sprockets'
   gem.add_development_dependency 'rake'
 end
