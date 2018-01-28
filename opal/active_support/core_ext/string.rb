@@ -25,7 +25,7 @@ class String
   end
 
   def underscore
-    `#{self}.replace(/[-\s]+/g, '_')
+    `return #{self}.replace(/[-\s]+/g, '_')
     .replace(/([A-Z\d]+)([A-Z][a-z])/g, '$1_$2')
     .replace(/([a-z\d])([A-Z])/g, '$1_$2')
     .replace(/-/g, '_')
@@ -33,7 +33,7 @@ class String
   end
 
   def camelize(first_letter = :upper)
-    `#{underscore}.replace(/(^|_)([^_]+)/g, function(match, pre, word, index) {
+    `return #{underscore}.replace(/(^|_)([^_]+)/g, function(match, pre, word, index) {
       var capitalize = #{first_letter} === #{:upper} || index > 0;
       return capitalize ? word.substr(0,1).toUpperCase()+word.substr(1) : word;
     })`
