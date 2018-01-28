@@ -1,7 +1,10 @@
 # Opal: ActiveSupport
 
-_@dhh [6:44 PM - Oct 23, 2012](https://twitter.com/dhh/status/260783823254601728):_
+[![Build Status](https://travis-ci.org/opal/opal-activesupport.svg?branch=master)](https://travis-ci.org/opal/opal-activesupport)
+
 > @AstonJ But it's vanilla Ruby. It's not like you have ActiveSupport available, which somewhat defeats it for me.
+
+_[@dhh 6:44 PM - Oct 23, 2012](https://twitter.com/dhh/status/260783823254601728)_
 
 
 ## Installation
