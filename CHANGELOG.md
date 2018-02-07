@@ -1,3 +1,9 @@
+### 0.3.2 - Unreleased
+
+[Changes](https://github.com/opal/opal-activesupport/compare/v0.3.1...master)
+
+- Added `ActiveSupport::Concern` (#19).
+
 ### 0.3.1 - 2018-01-28
 
 [Changes](https://github.com/opal/opal-activesupport/compare/v0.3.0...v0.3.1)
