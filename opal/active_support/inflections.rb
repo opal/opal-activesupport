@@ -1,3 +1,5 @@
+require "active_support/inflector/inflections"
+
 module ActiveSupport
   Inflector.inflections(:en) do |inflect|
     inflect.plural(/$/, 's')
