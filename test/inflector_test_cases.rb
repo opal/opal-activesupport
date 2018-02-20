@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 module InflectorTestCases
   SingularToPlural = {
@@ -13,8 +13,8 @@ module InflectorTestCases
     "wish"        => "wishes",
     "fish"        => "fish",
     "jeans"       => "jeans",
-    "funky jeans" => "funky jeans",
-    # "my money"    => "my money", <= multi-word uncountables not supported yet
+    # "funky jeans" => "funky jeans",
+    # "my money"    => "my money",
 
     "category"    => "categories",
     "query"       => "queries",
@@ -63,6 +63,7 @@ module InflectorTestCases
     "news"        => "news",
 
     "series"      => "series",
+    "miniseries"  => "miniseries",
     "species"     => "species",
 
     "quiz"        => "quizzes",
@@ -105,7 +106,6 @@ module InflectorTestCases
     "prize"       => "prizes",
     "edge"        => "edges",
 
-    "cow"         => "cows",
     "database"    => "databases",
 
     # regression tests against improper inflection regexes
@@ -130,10 +130,10 @@ module InflectorTestCases
   }
 
   SymbolToLowerCamel = {
-    :product                => 'product',
-    :special_guest          => 'specialGuest',
-    :application_controller => 'applicationController',
-    :area51_controller      => 'area51Controller'
+    product: "product",
+    special_guest: "specialGuest",
+    application_controller: "applicationController",
+    area51_controller: "area51Controller"
   }
 
   CamelToUnderscoreWithoutReverse = {
@@ -141,6 +141,7 @@ module InflectorTestCases
     "HTMLTidyGenerator"     => "html_tidy_generator",
     "FreeBSD"               => "free_bsd",
     "HTML"                  => "html",
+    "ForceXMLController"    => "force_xml_controller",
   }
 
   CamelWithModuleToUnderscoreWithSlash = {
@@ -175,6 +176,17 @@ module InflectorTestCases
     # "Test with malformed utf8 \251"       => "test-with-malformed-utf8"
   }
 
+  StringToParameterizedPreserveCase = {
+    "Donald E. Knuth"                     => "Donald-E-Knuth",
+    "Random text with *(bad)* characters" => "Random-text-with-bad-characters",
+    "Allow_Under_Scores"                  => "Allow_Under_Scores",
+    "Trailing bad characters!@#"          => "Trailing-bad-characters",
+    "!@#Leading bad characters"           => "Leading-bad-characters",
+    "Squeeze   separators"                => "Squeeze-separators",
+    "Test with + sign"                    => "Test-with-sign",
+    # "Test with malformed utf8 \xA9"       => "Test-with-malformed-utf8"
+  }
+
   StringToParameterizeWithNoSeparator = {
     "Donald E. Knuth"                     => "donaldeknuth",
     "With-some-dashes"                    => "with-some-dashes",
@@ -184,6 +196,17 @@ module InflectorTestCases
     "Squeeze   separators"                => "squeezeseparators",
     "Test with + sign"                    => "testwithsign",
     # "Test with malformed utf8 \251"       => "testwithmalformedutf8"
+  }
+
+  StringToParameterizePreserveCaseWithNoSeparator = {
+    "Donald E. Knuth"                     => "DonaldEKnuth",
+    "With-some-dashes"                    => "With-some-dashes",
+    "Random text with *(bad)* characters" => "Randomtextwithbadcharacters",
+    "Trailing bad characters!@#"          => "Trailingbadcharacters",
+    "!@#Leading bad characters"           => "Leadingbadcharacters",
+    "Squeeze   separators"                => "Squeezeseparators",
+    "Test with + sign"                    => "Testwithsign",
+    # "Test with malformed utf8 \xA9"       => "Testwithmalformedutf8"
   }
 
   StringToParameterizeWithUnderscore = {
@@ -198,38 +221,75 @@ module InflectorTestCases
     # "Test with malformed utf8 \251"       => "test_with_malformed_utf8"
   }
 
+  StringToParameterizePreserveCaseWithUnderscore = {
+    "Donald E. Knuth"                     => "Donald_E_Knuth",
+    "Random text with *(bad)* characters" => "Random_text_with_bad_characters",
+    "With-some-dashes"                    => "With-some-dashes",
+    "Allow_Under_Scores"                  => "Allow_Under_Scores",
+    "Trailing bad characters!@#"          => "Trailing_bad_characters",
+    "!@#Leading bad characters"           => "Leading_bad_characters",
+    "Squeeze   separators"                => "Squeeze_separators",
+    "Test with + sign"                    => "Test_with_sign",
+    # "Test with malformed utf8 \xA9"       => "Test_with_malformed_utf8"
+  }
+
   StringToParameterizedAndNormalized = {
     "Malmö"                               => "malmo",
     "Garçons"                             => "garcons",
     # "Ops\331"                             => "opsu",
     "Ærøskøbing"                          => "aeroskobing",
     "Aßlar"                               => "asslar",
-    "Japanese: 日本語"                    => "japanese"
+    "Japanese: 日本語" => "japanese"
   }
 
   UnderscoreToHuman = {
     "employee_salary" => "Employee salary",
     "employee_id"     => "Employee",
-    "underground"     => "Underground"
+    "underground"     => "Underground",
+    "_id"             => "Id",
+    "_external_id"    => "External"
+  }
+
+  UnderscoreToHumanWithKeepIdSuffix = {
+    "this_is_a_string_ending_with_id" => "This is a string ending with id",
+    "employee_id"                => "Employee id",
+    "employee_id_something_else" => "Employee id something else",
+    "underground"               => "Underground",
+    "_id"                       => "Id",
+    "_external_id"              => "External id"
+  }
+
+  UnderscoreToHumanWithoutCapitalize = {
+    "employee_salary" => "employee salary",
+    "employee_id"     => "employee",
+    "underground"     => "underground"
+  }
+
+  MixtureToTitleCaseWithKeepIdSuffix = {
+    "this_is_a_string_ending_with_id" => "This Is A String Ending With Id",
+    "EmployeeId"                      => "Employee Id",
+    "Author Id"                       => "Author Id"
   }
 
   MixtureToTitleCase = {
-    'active_record'         => 'Active Record',
-    'ActiveRecord'          => 'Active Record',
-    'action web service'    => 'Action Web Service',
-    'Action Web Service'    => 'Action Web Service',
-    'Action web service'    => 'Action Web Service',
-    'actionwebservice'      => 'Actionwebservice',
-    'Actionwebservice'      => 'Actionwebservice',
+    "active_record"         => "Active Record",
+    "ActiveRecord"          => "Active Record",
+    "action web service"    => "Action Web Service",
+    "Action Web Service"    => "Action Web Service",
+    "Action web service"    => "Action Web Service",
+    "actionwebservice"      => "Actionwebservice",
+    "Actionwebservice"      => "Actionwebservice",
     "david's code"          => "David's Code",
     "David's code"          => "David's Code",
     "david's Code"          => "David's Code",
     "sgt. pepper's"         => "Sgt. Pepper's",
     "i've just seen a face" => "I've Just Seen A Face",
     "maybe you'll be there" => "Maybe You'll Be There",
-    "¿por qué?"             => '¿Por Qué?',
+    "¿por qué?"             => "¿Por Qué?",
     "Fred’s"                => "Fred’s",
-    "Fred`s"                => "Fred`s"
+    "Fred`s"                => "Fred`s",
+    # "this was 'fake news'"  => "This Was 'Fake News'",
+    # ActiveSupport::SafeBuffer.new("confirmation num") => "Confirmation Num"
   }
 
   OrdinalNumbers = {
@@ -303,13 +363,13 @@ module InflectorTestCases
   }
 
   Irregularities = {
-    'person' => 'people',
-    'man'    => 'men',
-    'child'  => 'children',
-    'sex'    => 'sexes',
-    'move'   => 'moves',
-    'cow'    => 'kine',
-    'zombie' => 'zombies',
-    'genus'  => 'genera'
+    "person" => "people",
+    "man"    => "men",
+    "child"  => "children",
+    "sex"    => "sexes",
+    "move"   => "moves",
+    "cow"    => "kine", # Test inflections with different starting letters
+    "zombie" => "zombies",
+    "genus"  => "genera"
   }
 end
