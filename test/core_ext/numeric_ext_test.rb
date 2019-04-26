@@ -9,7 +9,7 @@ end unless defined? DateTime
 class NumericExtTimeAndDateTimeTest < ActiveSupport::TestCase
   def setup
     @now = Time.local(2005,2,10,15,30,45)
-    @dtnow = DateTime.civil(2005,2,10,15,30,45)
+    # @dtnow = DateTime.civil(2005,2,10,15,30,45)
     @seconds = {
       1.minute   => 60,
       10.minutes => 600,
