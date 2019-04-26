@@ -99,7 +99,8 @@ module ActiveSupport
   #   end
   module Concern
     class MultipleIncludedBlocks < StandardError #:nodoc:
-      def initialize
+      # Opal 0.11 always passes an argument to Exception.exception
+      def initialize(_)
         super "Cannot define multiple 'included' blocks for a Concern"
       end
     end
