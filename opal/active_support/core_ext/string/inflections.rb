@@ -14,8 +14,8 @@ class String
     ActiveSupport::Inflector.singularize(self, locale)
   end
 
-  def constantize(locale = :en)
-    ActiveSupport::Inflector.constantize(self, locale)
+  def constantize
+    ActiveSupport::Inflector.constantize(self)
   end
 
   def safe_constantize
