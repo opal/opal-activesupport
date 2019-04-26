@@ -3,6 +3,7 @@
 [Changes](https://github.com/opal/opal-activesupport/compare/v0.3.1...master)
 
 - Added `ActiveSupport::Concern` (#19).
+- Added `String#truncate` (#22).
 - Properly backported: (#21).
     + `ActiveSupport::Inflector.pluralize` and `String#pluralize`
     + `ActiveSupport::Inflector.singularize` and `String#singularize`
