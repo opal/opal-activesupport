@@ -267,24 +267,86 @@ class StringInflectionsTest < ActiveSupport::TestCase
   #   assert_not_predicate "production".inquiry, :development?
   # end
 
-  # def test_truncate
-  #   assert_equal "Hello World!", "Hello World!".truncate(12)
-  #   assert_equal "Hello Wor...", "Hello World!!".truncate(12)
-  # end
+  def test_truncate
+    assert_equal "Hello World!", "Hello World!".truncate(12)
+    assert_equal "Hello Wor...", "Hello World!!".truncate(12)
+  end
 
-  # def test_truncate_with_omission_and_separator
-  #   assert_equal "Hello[...]", "Hello World!".truncate(10, omission: "[...]")
-  #   assert_equal "Hello[...]", "Hello Big World!".truncate(13, omission: "[...]", separator: " ")
-  #   assert_equal "Hello Big[...]", "Hello Big World!".truncate(14, omission: "[...]", separator: " ")
-  #   assert_equal "Hello Big[...]", "Hello Big World!".truncate(15, omission: "[...]", separator: " ")
-  # end
+  def test_truncate_with_omission_and_separator
+    assert_equal "Hello[...]", "Hello World!".truncate(10, omission: "[...]")
+    assert_equal "Hello[...]", "Hello Big World!".truncate(13, omission: "[...]", separator: " ")
+    assert_equal "Hello Big[...]", "Hello Big World!".truncate(14, omission: "[...]", separator: " ")
+    assert_equal "Hello Big[...]", "Hello Big World!".truncate(15, omission: "[...]", separator: " ")
+  end
 
-  # def test_truncate_with_omission_and_regexp_separator
-  #   assert_equal "Hello[...]", "Hello Big World!".truncate(13, omission: "[...]", separator: /\s/)
-  #   assert_equal "Hello Big[...]", "Hello Big World!".truncate(14, omission: "[...]", separator: /\s/)
-  #   assert_equal "Hello Big[...]", "Hello Big World!".truncate(15, omission: "[...]", separator: /\s/)
-  # end
+  def test_truncate_with_omission_and_regexp_separator
+    assert_equal "Hello[...]", "Hello Big World!".truncate(13, omission: "[...]", separator: /\s/)
+    assert_equal "Hello Big[...]", "Hello Big World!".truncate(14, omission: "[...]", separator: /\s/)
+    assert_equal "Hello Big[...]", "Hello Big World!".truncate(15, omission: "[...]", separator: /\s/)
+  end
 
+  # def test_truncate_bytes
+  #   assert_equal "👍👍👍👍", "👍👍👍👍".truncate_bytes(16)
+  #   assert_equal "👍👍👍👍", "👍👍👍👍".truncate_bytes(16, omission: nil)
+  #   assert_equal "👍👍👍👍", "👍👍👍👍".truncate_bytes(16, omission: " ")
+  #   assert_equal "👍👍👍👍", "👍👍👍👍".truncate_bytes(16, omission: "🖖")
+  #
+  #   assert_equal "👍👍👍…", "👍👍👍👍".truncate_bytes(15)
+  #   assert_equal "👍👍👍", "👍👍👍👍".truncate_bytes(15, omission: nil)
+  #   assert_equal "👍👍👍 ", "👍👍👍👍".truncate_bytes(15, omission: " ")
+  #   assert_equal "👍👍🖖", "👍👍👍👍".truncate_bytes(15, omission: "🖖")
+  #
+  #   assert_equal "…", "👍👍👍👍".truncate_bytes(5)
+  #   assert_equal "👍", "👍👍👍👍".truncate_bytes(5, omission: nil)
+  #   assert_equal "👍 ", "👍👍👍👍".truncate_bytes(5, omission: " ")
+  #   assert_equal "🖖", "👍👍👍👍".truncate_bytes(5, omission: "🖖")
+  #
+  #   assert_equal "…", "👍👍👍👍".truncate_bytes(4)
+  #   assert_equal "👍", "👍👍👍👍".truncate_bytes(4, omission: nil)
+  #   assert_equal " ", "👍👍👍👍".truncate_bytes(4, omission: " ")
+  #   assert_equal "🖖", "👍👍👍👍".truncate_bytes(4, omission: "🖖")
+  #
+  #   assert_raise ArgumentError do
+  #     "👍👍👍👍".truncate_bytes(3, omission: "🖖")
+  #   end
+  # end
+  #
+  # def test_truncate_bytes_preserves_codepoints
+  #   assert_equal "👍👍👍👍", "👍👍👍👍".truncate_bytes(16)
+  #   assert_equal "👍👍👍👍", "👍👍👍👍".truncate_bytes(16, omission: nil)
+  #   assert_equal "👍👍👍👍", "👍👍👍👍".truncate_bytes(16, omission: " ")
+  #   assert_equal "👍👍👍👍", "👍👍👍👍".truncate_bytes(16, omission: "🖖")
+  #
+  #   assert_equal "👍👍👍…", "👍👍👍👍".truncate_bytes(15)
+  #   assert_equal "👍👍👍", "👍👍👍👍".truncate_bytes(15, omission: nil)
+  #   assert_equal "👍👍👍 ", "👍👍👍👍".truncate_bytes(15, omission: " ")
+  #   assert_equal "👍👍🖖", "👍👍👍👍".truncate_bytes(15, omission: "🖖")
+  #
+  #   assert_equal "…", "👍👍👍👍".truncate_bytes(5)
+  #   assert_equal "👍", "👍👍👍👍".truncate_bytes(5, omission: nil)
+  #   assert_equal "👍 ", "👍👍👍👍".truncate_bytes(5, omission: " ")
+  #   assert_equal "🖖", "👍👍👍👍".truncate_bytes(5, omission: "🖖")
+  #
+  #   assert_equal "…", "👍👍👍👍".truncate_bytes(4)
+  #   assert_equal "👍", "👍👍👍👍".truncate_bytes(4, omission: nil)
+  #   assert_equal " ", "👍👍👍👍".truncate_bytes(4, omission: " ")
+  #   assert_equal "🖖", "👍👍👍👍".truncate_bytes(4, omission: "🖖")
+  #
+  #   assert_raise ArgumentError do
+  #     "👍👍👍👍".truncate_bytes(3, omission: "🖖")
+  #   end
+  # end
+  #
+  # def test_truncates_bytes_preserves_grapheme_clusters
+  #   assert_equal "a ", "a ❤️ b".truncate_bytes(2, omission: nil)
+  #   assert_equal "a ", "a ❤️ b".truncate_bytes(3, omission: nil)
+  #   assert_equal "a ", "a ❤️ b".truncate_bytes(7, omission: nil)
+  #   assert_equal "a ❤️", "a ❤️ b".truncate_bytes(8, omission: nil)
+  #
+  #   assert_equal "a ", "a 👩‍❤️‍👩".truncate_bytes(13, omission: nil)
+  #   assert_equal "", "👩‍❤️‍👩".truncate_bytes(13, omission: nil)
+  # end
+  #
   # def test_truncate_words
   #   assert_equal "Hello Big World!", "Hello Big World!".truncate_words(3)
   #   assert_equal "Hello Big...", "Hello Big World!".truncate_words(2)
@@ -316,8 +378,8 @@ class StringInflectionsTest < ActiveSupport::TestCase
   # end
 
   # def test_truncate_multibyte
-  #   assert_equal "\354\225\204\353\246\254\353\236\221 \354\225\204\353\246\254 ...".dup.force_encoding(Encoding::UTF_8),
-  #     "\354\225\204\353\246\254\353\236\221 \354\225\204\353\246\254 \354\225\204\353\235\274\353\246\254\354\230\244".dup.force_encoding(Encoding::UTF_8).truncate(10)
+  #   assert_equal (+"\354\225\204\353\246\254\353\236\221 \354\225\204\353\246\254 ...").force_encoding(Encoding::UTF_8),
+  #     (+"\354\225\204\353\246\254\353\236\221 \354\225\204\353\246\254 \354\225\204\353\235\274\353\246\254\354\230\244").force_encoding(Encoding::UTF_8).truncate(10)
   # end
 
   # def test_truncate_should_not_be_html_safe
