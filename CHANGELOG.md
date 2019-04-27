@@ -1,4 +1,4 @@
-### 0.3.2 - unreleased
+### 0.3.3 - unreleased
 
 [Changes](https://github.com/opal/opal-activesupport/compare/v0.3.2...HEAD)
 
