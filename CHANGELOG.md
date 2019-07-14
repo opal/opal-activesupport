@@ -1,6 +1,10 @@
-### 0.3.3 - unreleased
+### 0.3.4 - 2019-07-14
 
-[Changes](https://github.com/opal/opal-activesupport/compare/v0.3.2...HEAD)
+[Changes](https://github.com/opal/opal-activesupport/compare/v0.3.3...HEAD)
+
+### 0.3.3 - 2019-07-14
+
+[Changes](https://github.com/opal/opal-activesupport/compare/v0.3.2...v0.3.3)
 
 - Add support for Opal v1.0
 
