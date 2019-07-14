@@ -2,6 +2,8 @@
 
 [Changes](https://github.com/opal/opal-activesupport/compare/v0.3.2...HEAD)
 
+- Add support for Opal v1.0
+
 ### 0.3.2 - 2019-04-27
 
 [Changes](https://github.com/opal/opal-activesupport/compare/v0.3.1...v0.3.2)

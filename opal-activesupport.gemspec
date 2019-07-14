@@ -20,7 +20,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
 
-  gem.add_dependency 'opal', ['>= 0.5.0', '< 1.0.0']
+  gem.add_dependency 'opal', ['>= 0.5.0', '< 2']
   gem.add_development_dependency 'opal-minitest'
   gem.add_development_dependency 'opal-sprockets'
   gem.add_development_dependency 'rake'
